@@ -1,0 +1,27 @@
+{
+  "name": "wd-201-nodejs",
+  "version": "1.0.0",
+  "description": "working with npm",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js --port=8080",
+    "cy:run": "cypress run",
+    "test": "npm start & wait-on http://localhost:8080 & npm run cy:run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vamsikri-hash/wd-201-nodejs.git"
+  },
+  "author": "vamsi.bellam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vamsikri-hash/wd-201-nodejs/issues"
+  },
+  "homepage": "https://github.com/vamsikri-hash/wd-201-nodejs#readme",
+  "dependencies": {
+    "minimist": "^1.2.6",
+    "cypress": "^10.3.0",
+    "cypress-json-results": "^1.2.1",
+    "wait-on": "6.0.1"
+  }
+}
