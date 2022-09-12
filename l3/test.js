@@ -50,7 +50,7 @@ fs.readFile("./output.txt", "utf8", (err, data) => {
 
     let feedback = passed
       ? "Good work! It looks like you've completed all the required functions as per the specification and it print's the todo list as intended."
-      : "Oops! It looks like you haven't completed all the required functions as per the specification. Please review the specification and try again.";
+      : `Oops! It looks like you haven't completed all the required functions as per the specification. Please review the specification and try again.\n\nExpected output:\n${expectedOutput}\n\nActual output:\n${output}`;
 
     writeReport({
       version: 0,
