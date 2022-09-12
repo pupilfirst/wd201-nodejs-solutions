@@ -6,6 +6,6 @@
     "sequelize": "^6.21.4"
   },
   "scripts": {
-    "test": "jest --detectOpenHandles"
+    "test": "jest --json --outputFile=results.json --detectOpenHandles"
   }
 }
