@@ -2,7 +2,7 @@
   "development": {
     "username": "postgres",
     "password": "postgres",
-    "database": "saas_db",
+    "database": "todo_db_test",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "logging": false
@@ -10,15 +10,15 @@
   "test": {
     "username": "postgres",
     "password": "postgres",
-    "database": "database_test",
+    "database": "todo_db_test",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "logging": false
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
+    "username": "postgres",
+    "password": "postgres",
+    "database": "todo_db_prod",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }

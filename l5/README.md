@@ -1,6 +1,6 @@
 ## Automated test cases
 
-[Todo.test.js](./Todo.test.js) Contains jest test cases to check the L5 milestones.
+[todo.js](./__tests__/todo.js) Contains jest test cases to check the L5 milestones.
 
 It checks for:
 
