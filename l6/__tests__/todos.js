@@ -13,8 +13,12 @@ describe("Todo Application", function () {
   });
 
   afterAll(async () => {
-    await db.sequelize.close();
-    server.close();
+    try {
+      await db.sequelize.close();
+      await server.close();
+    } catch (error) {
+      console.log(error);
+    }
   });
 
   test("creates a todo and responds with json at /todos #POST", async () => {
@@ -69,5 +73,6 @@ describe("Todo Application", function () {
       deleteNonExistentTodoResponse.text
     );
     expect(parsedDeleteNonExistentTodoResponse).toBe(false);
+    done();
   });
 });
