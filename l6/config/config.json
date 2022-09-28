@@ -7,9 +7,9 @@
     "dialect": "postgres"
   },
   "test": {
-    "username": "mahesh",
-    "password": "mahesh",
-    "database": "todo_l6",
+    "username": "postgres",
+    "password": "postgres",
+    "database": "todo_l6_test",
     "host": "127.0.0.1",
     "dialect": "postgres",
     "logging": false
