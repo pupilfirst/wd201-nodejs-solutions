@@ -21,7 +21,7 @@ describe("Todo Application", function () {
     }
   });
 
-  test("creates a todo and responds with json at /todos #POST", async () => {
+  test("Creates a todo and responds with json at /todos POST endpoint", async () => {
     const response = await agent.post("/todos").send({
       title: "Buy milk",
       dueDate: new Date().toISOString(),
@@ -35,7 +35,7 @@ describe("Todo Application", function () {
     expect(parsedResponse.id).toBeDefined();
   });
 
-  test("Mark a todo with the given ID as complete", async () => {
+  test("Marks a todo with the given ID as complete", async () => {
     const response = await agent.post("/todos").send({
       title: "Buy milk",
       dueDate: new Date().toISOString(),
@@ -53,7 +53,7 @@ describe("Todo Application", function () {
     expect(parsedUpdateResponse.completed).toBe(true);
   });
 
-  test("deletes a todo with the given ID if it exists", async () => {
+  test("Deletes a todo with the given ID if it exists and sends a boolean response", async () => {
     const response = await agent.post("/todos").send({
       title: "Buy tesla",
       dueDate: new Date().toISOString(),
