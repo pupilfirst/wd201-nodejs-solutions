@@ -19,11 +19,14 @@ app.get("/todos", async function (_request, response) {
   }
 });
 
-app.get("/todos/:id", function (request, response) {
-  console.log("Looking for Todo with ID: ", request.params.id);
-  // First, we have to query our database to get details of a Todo with a specific ID.
-  // Then, we have to respond back:
-  // response.send(todo)
+app.get("/todos/:id", async function (request, response) {
+  try {
+    const todo = await Todo.findByPk(request.params.id);
+    return response.json(todo);
+  } catch (error) {
+    console.log(error);
+    return response.status(422).json(error);
+  }
 });
 
 app.post("/todos", async function (request, response) {
@@ -47,11 +50,19 @@ app.put("/todos/:id/markAsCompleted", async function (request, response) {
   }
 });
 
-app.delete("/todos/:id", function (request, response) {
-  console.log("We have to delete a Todo with ID: ", request.params.id);
-  // First, we have to query our database to delete a Todo by ID.
-  // Then, we have to respond back with some simplete message like "To-Do deleted successfully":
-  // response.send("Todo deleted successfully")
+app.delete("/todos/:id", async function (request, response) {
+  try {
+    let id = await Todo.destroy({
+      where: {
+        id: request.params.id,
+      },
+    });
+
+    return response.json(id == 0 ? false : true);
+  } catch (error) {
+    console.log(error);
+    return response.json(false);
+  }
 });
 
 module.exports = app;
