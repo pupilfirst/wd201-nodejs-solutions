@@ -11,8 +11,8 @@ app.get("/", function (request, response) {
 app.get("/todos", async function (_request, response) {
   console.log("Processing list of all Todos ...");
   try {
-    const todos = await Todo.findAll();
-    response.send(todos);
+    const todos = await Todo.getAllTodos();
+    return response.json(todos);
   } catch (error) {
     console.log(error);
     return response.status(422).json(error);
@@ -52,16 +52,16 @@ app.put("/todos/:id/markAsCompleted", async function (request, response) {
 
 app.delete("/todos/:id", async function (request, response) {
   try {
-    let id = await Todo.destroy({
-      where: {
-        id: request.params.id,
-      },
-    });
-
-    return response.json(id == 0 ? false : true);
+    const todo = await Todo.findByPk(request.params.id);
+    if (todo) {
+      await todo.delete();
+      return response.json(true);
+    } else {
+      return response.json(false);
+    }
   } catch (error) {
     console.log(error);
-    return response.json(false);
+    return response.status(422).json(false);
   }
 });
 
