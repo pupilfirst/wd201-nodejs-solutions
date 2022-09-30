@@ -7,11 +7,11 @@ describe("Todo Express application", () => {
     cy.get("table").should("be.visible");
   });
 
-  it("contains a header element with content - This is my Todo Application", () => {
+  it("contains a header h1 tag with content - This is my Todo Application", () => {
     cy.contains("This is my Todo Application");
   });
 
-  it("contains a footer element with content - Built with Node.js", () => {
+  it("contains a footer h1 tag with content - Built with Node.js", () => {
     cy.contains("Built with Node.js");
   });
 });
