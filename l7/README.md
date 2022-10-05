@@ -2,7 +2,7 @@
 
 ```bash
 npm install
-npm run cy:run -- --env STUDENT_SUBMISSION_URL="https://git.bodhish.in/wd-101-test/"
+npm run cy:run -- --env STUDENT_SUBMISSION_URL="https://git.bodhish.in/wd201-l7/"
 ```
 
 # How to generate report
