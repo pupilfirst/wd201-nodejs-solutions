@@ -40,7 +40,6 @@ module.exports = (sequelize, DataTypes) => {
         where: {
           dueDate: {
             [Op.lt]: new Date(),
-            completed: false
           },
         },
         order: [["id", "ASC"]],
