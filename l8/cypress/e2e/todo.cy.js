@@ -1,4 +1,4 @@
-describe("Todo Express application Design Implementation", () => {
+describe("", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000");
   });
