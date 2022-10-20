@@ -15,7 +15,7 @@ let generateFeedback = (passed, results) => {
 
   const suffix = passed
     ? "See you in the next level!"
-    : "Please make sure that you go through the assignment instructions; Our automated tests interacts with your application, checks for the presence of the project/registration links and also the contents of the registration page.\n\nIf you're having trouble with this assignment, please reach out to the Pupilfirst team on the Web Development community.";
+    : "Please make sure that you go through the assignment instructions; Our automated tests interacts with your application, checks for the presence of application header, a form with button and input for todo creation and three sections for listing todos. Also ensure that the section titles and order exactly match the project specification.\n\nIf you're having trouble with this assignment, please reach out to the Pupilfirst team on the Web Development community.";
 
   const feedback = prefix + "\n\n" + testResults + "\n\n" + suffix;
 
