@@ -25,4 +25,10 @@ describe("", () => {
   it("contains a text field to input title of a new todo item", () => {
     cy.get('input[type*="text"]').should("be.visible");
   });
+
+  it("contains one element with the given IDs in each of sections Overdue, Due Today and Due Later to show the count of todos", () => {
+    cy.get('#count-overdue').should("be.visible");
+    cy.get('#count-due-today').should("be.visible");
+    cy.get('#count-due-later').should("be.visible");
+  });
 });
