@@ -13,7 +13,7 @@ describe("", () => {
     cy.get("h5").each((_section, _index, sections) => {
       let sectionTexts = ["Overdue", "Due Today", "Due Later"];
       sections.each((index, section) => {
-        expect(sectionTexts[index]).to.equal(section.innerText);
+        expect(sectionTexts[index]).to.equal(section.innerText.trim());
       });
     });
   });
@@ -27,8 +27,8 @@ describe("", () => {
   });
 
   it("contains one element with the given IDs in each of sections Overdue, Due Today and Due Later to show the count of todos", () => {
-    cy.get('#count-overdue').should("be.visible");
-    cy.get('#count-due-today').should("be.visible");
-    cy.get('#count-due-later').should("be.visible");
+    cy.get("#count-overdue").should("be.visible");
+    cy.get("#count-due-today").should("be.visible");
+    cy.get("#count-due-later").should("be.visible");
   });
 });
