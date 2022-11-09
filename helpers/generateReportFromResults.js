@@ -56,7 +56,7 @@ readFile("results.json").then((data) => {
   } else {
     writeReport({
       version: 0,
-      grade: "skip",
+      grade: "reject",
       status: "failure",
       feedback:
         "We are unable to test your submission - something about it was too different from what we were expecting. Please check the instructions for this task and try again. If you have seen this message more than once, please reach out to Pupilfirst team for support.",
