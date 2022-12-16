@@ -1,23 +1,18 @@
 let fs = require("fs");
 
 let generateFeedback = (passed, results) => {
-  const testResults = Object.keys(results)
-    .map((key) => {
-      let status = results[key];
+  const assertionResults = results["assertionResults"]
+    .map((item) => {
+      let status = item["status"];
+      let title = item["title"];
       let statusSymbol = status == "passed" ? "✓" : "✗";
-      return `${statusSymbol} ${key}`;
+      return `${statusSymbol} ${title}`;
     })
     .join("\n\n");
 
-  const prefix = passed
-    ? "Good work! It looks like you've built your webpage according to our specifications. These are the tests we ran:"
-    : "Uh oh! It looks like you've missed some parts of the assignment. Here are the results of the tests that we ran. A tick (✓) indicates a successful test, and a cross (✗) indicates a failed test.";
+  let errorMessage = results["message"];
 
-  const suffix = passed
-    ? "See you in the next level!"
-    : "Please make sure that you go through the assignment instructions; Our automated tests interacts with your application, checks for the presence of application header, a form with button and input for todo creation and three sections for listing todos. Also ensure that the section titles and order exactly match the project specification.\n\nIf you're having trouble with this assignment, please reach out to the Pupilfirst team on the Web Development community.";
-
-  const feedback = prefix + "\n\n" + testResults + "\n\n" + suffix;
+  const feedback = assertionResults + "\n\n" + errorMessage;
 
   return feedback;
 };
@@ -40,8 +35,8 @@ const readFile = async (filePath) => {
 readFile("results.json").then((data) => {
   if (data) {
     let results = JSON.parse(data);
-    const passed = results["totals"]["failed"] == 0;
-    let feedback = generateFeedback(passed, results[Object.keys(results)[0]]);
+    const passed = results["testResults"][0]["status"] == "passed";
+    let feedback = generateFeedback(passed, results["testResults"][0]);
     writeReport({
       version: 0,
       grade: passed ? "accept" : "reject",
