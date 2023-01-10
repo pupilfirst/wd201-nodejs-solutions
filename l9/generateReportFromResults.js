@@ -39,7 +39,7 @@ readFile("results.json").then((data) => {
     let feedback = generateFeedback(passed, results["testResults"][0]);
     writeReport({
       version: 0,
-      grade: passed ? "accept" : "reject",
+      grade: passed ? "skip" : "reject",
       status: passed ? "success" : "failure",
       feedback: feedback,
       report: feedback,
