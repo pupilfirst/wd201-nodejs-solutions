@@ -11,8 +11,10 @@ let generateFeedback = (passed, results) => {
     .join("\n\n");
 
   let errorMessage = results["message"];
+  
+  let prefixText = passed ? "" : "We tried to run the tests that you submitted and not all of them passed. Please ensure that the tests pass locally before submitting. Here is a snippet of your test results:";
 
-  const feedback = assertionResults + "\n\n" + errorMessage;
+  const feedback = prefixText + "\n\n" + assertionResults + "\n\n" + errorMessage;
 
   return feedback;
 };
